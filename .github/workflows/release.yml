@@ -70,7 +70,7 @@ jobs:
         make
         cd ../../..
         ./autogen.sh
-        ./configure --enable-shared=no LDFLAGS="-L$libdir/libsodium-1.0.18/src/libsodium/.libs -lsodium -L$libdir/libevent-release-2.1.8-stable/.libs -levent -L$libdir/gmp-6.1.2/.libs -lgmp -static"
+        ./configure --enable-shared=no LDFLAGS="-L$libdir/libsodium-1.0.18/src/libsodium/.libs -lsodium -L$libdir/libevent-release-2.1.8-stable/.libs -levent -L$libdir/gmp-6.1.2/.libs -lgmp"
         make
         tar -czvf nspv-linux.tar.gz nspv coins
 
