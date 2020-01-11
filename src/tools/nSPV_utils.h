@@ -339,6 +339,10 @@ unsigned char _decode_hex(char *hex) { return((unhex(hex[0])<<4) | unhex(hex[1])
 int32_t decode_hex(uint8_t *bytes,int32_t n,char *hex)
 {
     int32_t adjust,i = 0;
+
+    if (n <= 0)  // prevent wrong mem access
+        return 0;
+
     //printf("decode.(%s)\n",hex);
     if ( is_hexstr(hex,n) <= 0 )
     {
