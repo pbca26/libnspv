@@ -30,7 +30,7 @@ cstring *FinalizeCCtx(btc_spv_client *client, cJSON *txdata, char *err)
     int32_t i,n,vini; cstring *finalHex,*hex; cJSON *sigData=NULL; char ccerror[NSPV_MAXERRORLEN]; int64_t voutValue;
     
     if (!cJSON_HasObjectItem(txdata, "hex")) {
-        strcpy(err, "No field \"hex\" in JSON response from fullnode", NSPV_MAXERRORLEN);
+        strncpy(err, "No field \"hex\" in JSON response from fullnode", NSPV_MAXERRORLEN);
     }
     hex=cstr_new(jstr(txdata,"hex"));
     cstr_append_c(hex,0);
@@ -87,7 +87,7 @@ cstring *FinalizeCCtx(btc_spv_client *client, cJSON *txdata, char *err)
                 fprintf(stderr,"signing error for vini.%d\n",vini);
                 cstr_free(voutScriptPubkey,1);
                 btc_tx_free(mtx);
-                vsnprintf(err, NSPV_MAXERRORLEN, "signing error for vini.%d", vini);
+                snprintf(err, NSPV_MAXERRORLEN, "signing error for vini.%d", vini);
                 return NULL;
             }
             cstr_free(voutScriptPubkey,1);
