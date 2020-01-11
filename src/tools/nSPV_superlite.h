@@ -1526,11 +1526,20 @@ cJSON *_NSPV_JSON(cJSON *argjson)
         cJSON *result=jobj(req,"result");
         if (!cJSON_IsNull(result) && cJSON_HasObjectItem(result,"result") && strcmp(jstr(result,"result"),"success")==0 && (jstr(result,"hex"))!=0 && jobj(result,"SigData")!=NULL)
         {     
-            cstring *hex=FinalizeCCtx(NSPV_client,result);
+            char err[NSPV_MAXERRORLEN];
+            cstring *hex=FinalizeCCtx(NSPV_client,result, err);
             result=cJSON_CreateObject();
-            jaddstr(result,"result","success");
-            jaddstr(result,"hex",hex->str);
-            cstr_free(hex,1);
+            if (hex != NULL)
+            {
+                jaddstr(result, "result", "success");
+                jaddstr(result, "hex", hex->str);
+                cstr_free(hex, 1);
+            }
+            else
+            {
+                jaddstr(result, "result", "error");
+                jaddstr(result, "error", err);
+            }
             cJSON_Delete(req);  
             return(result);
         }
