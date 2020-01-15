@@ -182,8 +182,24 @@ int main(int argc, char* argv[])
     int maxnodes = 10;
     char* dbfile = 0;
     const btc_chainparams *chain = &kmd_chainparams_main;
+    long filesize;
+    char *filestr;
+    FILE *fileStream;
+    char fileText [100];
     portable_mutex_init(&NSPV_commandmutex);
     portable_mutex_init(&NSPV_netmutex);
+    if ( (filestr= OS_filestr(&filesize,"params")) != 0 )
+    {
+        fileStream = fopen ("params", "r");
+        fgets (fileText, 100, fileStream);
+        fclose(fileStream);
+        fprintf(stderr,"params coin %s\n",fileText);
+        if ( (chain= NSPV_coinlist_scan(fileText,&kmd_chainparams_main)) != 0 )
+        {
+            argc--;
+            argv++;
+        }
+    }
     if ( argc > 1 )
     {
         if ( strcmp(argv[1],"BTC") == 0 )
