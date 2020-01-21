@@ -28,6 +28,8 @@
 #define NSPV_MAX_BLOCK_HEADERS 128
 #define NSPV_ENCRYPTED_MAXSIZE 8192
 
+#define NSPV_MAXERRORLEN 256
+
 #include <time.h>
 #ifndef __MINGW
 #include <pthread.h>
