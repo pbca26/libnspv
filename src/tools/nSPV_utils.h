@@ -34,7 +34,7 @@ btc_chainparams kmd_chainparams_main =
     7770,7771,
     {{"5.9.102.210, 45.32.19.196, 5.9.253.195, 78.47.196.146, 23.254.165.16, 136.243.58.134, 5.9.253.196, 5.9.253.197, 5.9.253.198, 5.9.253.199, 5.9.253.200, 5.9.253.201, 5.9.253.202, 5.9.253.203"}, 0},
     60,
-    170007,
+    170008, //170007,
     MAX_TX_SIZE_AFTER_SAPLING,
     1,1,0,
 };
@@ -339,6 +339,10 @@ unsigned char _decode_hex(char *hex) { return((unhex(hex[0])<<4) | unhex(hex[1])
 int32_t decode_hex(uint8_t *bytes,int32_t n,char *hex)
 {
     int32_t adjust,i = 0;
+
+    if (n <= 0)  // prevent wrong mem access
+        return 0;
+
     //printf("decode.(%s)\n",hex);
     if ( is_hexstr(hex,n) <= 0 )
     {

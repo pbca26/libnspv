@@ -910,7 +910,7 @@ cJSON *NSPV_broadcast(btc_spv_client *client,char *hex)
 
 cJSON *NSPV_remoterpccall(btc_spv_client *client, char* method, cJSON *request)
 {
-    uint8_t *msg; int32_t i,iter,len = 3,slen;
+    uint8_t *msg; int32_t i,iter,len,slen;
     char *pubkey=utils_uint8_to_hex(NSPV_pubkey.pubkey,33);
 
     jaddstr(request,"mypk",pubkey);
@@ -918,9 +918,20 @@ cJSON *NSPV_remoterpccall(btc_spv_client *client, char* method, cJSON *request)
     char *json=cJSON_Print(request);
     if (!json) return (NULL);
     slen = (int32_t)strlen(json);
-    msg = (uint8_t *)malloc(4 + sizeof(slen) + slen);
-    msg[0] = msg[1] = msg[2] = 0;
-    msg[len++] = NSPV_REMOTERPC;
+    if (slen >254)
+    {
+        msg = (uint8_t *)malloc(4 + sizeof(slen) + slen);
+        len = 3;
+        msg[0] = msg[1] = msg[2] = 0;
+        msg[len++] = NSPV_REMOTERPC;
+    }
+    else
+    {
+         msg = (uint8_t *)malloc(2 + sizeof(slen) + slen);
+         msg[0]=0;
+         len = 1;
+         msg[len++] = NSPV_REMOTERPC;
+    }
     len += iguana_rwnum(1,&msg[len],sizeof(slen),&slen);
     memcpy(&msg[len],json,slen), len += slen;
     free(json);
@@ -1515,11 +1526,20 @@ cJSON *_NSPV_JSON(cJSON *argjson)
         cJSON *result=jobj(req,"result");
         if (!cJSON_IsNull(result) && cJSON_HasObjectItem(result,"result") && strcmp(jstr(result,"result"),"success")==0 && (jstr(result,"hex"))!=0 && jobj(result,"SigData")!=NULL)
         {     
-            cstring *hex=FinalizeCCtx(NSPV_client,result);
+            char err[NSPV_MAXERRORLEN];
+            cstring *hex=FinalizeCCtx(NSPV_client,result, err);
             result=cJSON_CreateObject();
-            jaddstr(result,"result","success");
-            jaddstr(result,"hex",hex->str);
-            cstr_free(hex,1);
+            if (hex != NULL)
+            {
+                jaddstr(result, "result", "success");
+                jaddstr(result, "hex", hex->str);
+                cstr_free(hex, 1);
+            }
+            else
+            {
+                jaddstr(result, "result", "error");
+                jaddstr(result, "error", err);
+            }
             cJSON_Delete(req);  
             return(result);
         }
