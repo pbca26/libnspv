@@ -34,7 +34,7 @@ btc_chainparams kmd_chainparams_main =
     7770,7771,
     {{"45.32.19.196, 136.243.58.134"}, 0},
     60,
-    170007,
+    170009,
     MAX_TX_SIZE_AFTER_SAPLING,
     1,1,0,
 };
