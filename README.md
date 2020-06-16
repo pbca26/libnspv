@@ -154,10 +154,6 @@ cd libnspv
 
 ## Now you can follow the next instructions to compile and update
 
-<<<<<<< HEAD
-#### Full library including CLI tool and wallet database
-
-=======
 ### First build cryptoconditions library
 
 #### MacOS & Linux
@@ -182,7 +178,7 @@ cd ./src/tools/cryptoconditions
 Go to libnspv directory and run:
 
 On Linux and MacOS:
->>>>>>> dev
+
 ```
 ./autogen.sh
 ./configure
@@ -198,17 +194,11 @@ On Windows run
 
 Go to libnspv directory and run:
 
-<<<<<<< HEAD
-#### Pure library without wallet support
-
-The nspv client doesn't follow the options `--disable-wallet --disable-tools` as it needs some of the wallet functions as all the nspv API is always supported
-=======
 ```
 ./autogen.sh
 ./configure --disable-wallet --disable-tools
 make check
 ```
->>>>>>> dev
 
 #### Updating libnspv
 
