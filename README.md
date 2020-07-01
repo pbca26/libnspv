@@ -178,6 +178,7 @@ cd ./src/tools/cryptoconditions
 Go to libnspv directory and run:
 
 On Linux and MacOS:
+
 ```
 ./autogen.sh
 ./configure
