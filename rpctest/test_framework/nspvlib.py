@@ -237,11 +237,11 @@ class NspvRpcCalls:
         time.sleep(1)
         return r.content
 
-    def nspv_gettransaction(self, hash="", vout="", height=""):
+    def nspv_gettransaction(self, txid, vout=None, height=None):
         params = {'userpass': self.user_pass,
                   'method': 'gettransaction'}
-        if hash:
-            params.update({'hash': hash})
+        if txid:
+            params.update({'txid': txid})
         if vout:
             params.update({'vout': vout})
         if height:
