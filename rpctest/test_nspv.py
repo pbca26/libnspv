@@ -75,7 +75,23 @@ def setup_module():
                              'tx_spent_height': 2681,
                              'tx_proof_height': '2690',
                              'port': '18031'
-                            }
+                            },
+                    # not sure if all data below is correct
+                    # hdrsproof response ref: https://gist.githubusercontent.com/pbca26/4834746f753de2e20d162cbe9019010f/raw/eebc0aa2a860655cb59f70d4bcee751fceddc1c9/nspv-hdrsproof-rick.json
+                    "RICK": {
+                            'tx_list_address': 'RBZ9cckqX5kUNKVD3ouZSzsqvdrmmyPg7s',
+                            'min_chain_height': 481073,
+                            'notarization_height': '1468000',
+                            'prev_notarization_h': 481354,
+                            'next_notarization_h': 481390,
+                            'hdrs_proof_low': '481364',
+                            'hdrs_proof_high': '481380',
+                            'numhdrs_expected': 37,
+                            'tx_proof_id': 'dcd9d4a23405c25f65a341319f0a860cd4ffa364510bb1180aeab57efc1315f0',
+                            'tx_spent_height': 477369,
+                            'tx_proof_height': '477369',
+                            'port': '25435',
+                           },
                     }
     userpass = "userpass"
     url = "http://127.0.0.1:" + chain_params.get(coin).get("port")
@@ -315,7 +331,7 @@ def test_broadcast_call():
     if broadcast_res == expected:
         pass
     else:
-        raise AssertionError("Aseert equal braodcast: ", broadcast_res, expected)
+        raise AssertionError("Aseert equal broadcast: ", broadcast_res, expected)
 
 
 def test_mempool_call():
@@ -358,7 +374,6 @@ def test_gettransaction():
     print('\n', "testing gettransaction call")
     rpc_call = call.nspv_gettransaction()
     call.assert_error(rpc_call)
-
 
 def test_autologout():
     """Wif should expeire in 777 seconds"""
