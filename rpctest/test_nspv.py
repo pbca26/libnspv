@@ -46,6 +46,7 @@ def setup_module():
                             'tx_proof_id': 'f7beb36a65bc5bcbc9c8f398345aab7948160493955eb4a1f05da08c4ac3784f',
                             'tx_spent_height': 1456212,
                             'tx_proof_height': '1468520',
+                            'tx_proof_hex': '0400008085202f8902fd49a37307311c6291c4a2d019fef867f1587bda1cf756886edef76460596b44000000006b483045022100a3883009c3cbc698d5ed507880d8097b634bd061666fd2a9c5bfcbc378771e6e02203275aa53bb2ca5561bf34f67f7bff4ba69909be24f3a5e5e5c32a34b7e873f700121022e9e79e5d87e8bd562b1a6f87ad19ee8f54f09c0e014f971608b164edb396154feffffff395ff1a8c008c69ad172963b191d3ef647fd83d0e43b63adf4c64271ddcf9835000000006a47304402206b6d7ee89ab3dfccc2b9b08f6fb78e7b6e64c8b37dcb8d30c888a1bd5ba6a6ab0220130c73a034956b65184d47378eba6a01e7e9686d3c1c89a889606b9369028d63012103c67330293d466eb61bb4cdf2c886cbe04b24b2e2bfaca2239a6d4dd6504ee69ffeffffff02988b9706000000001976a9149611ac26733deb915d4e61a8a99286c298723f6a88ac2c185c19000000001976a9141d56621b69a14ef32c71c5d2bf5970335248331888ac01c8375de43816000000000000000000000000',
                             'port': '7771',
                            },
                     "ILN": {
@@ -60,6 +61,7 @@ def setup_module():
                             'tx_proof_id': '67ffe0eaecd6081de04675c492a59090b573ee78955c4e8a85b8ac0be0e8e418',
                             'tx_spent_height': 2681,
                             'tx_proof_height': '2690',
+                            'tx_proof_hex': '0400008085202f8901d354bc6c0168810c940da2a1dbf7b86fbd1a7af7903e2aa58e8eb3127493f3b00100000049483045022100b301101cc52a8a4e93ada52143bf2eb67a1efb8487b8631b6a3882befa0c24c9022055ba76dc2c0f0ca2e8143c3d10f12586c3ddbb80fc664e8e8f2642d2bc3f430a01ffffffff024014502e000000001976a91488b1e3638c6ba4b13c64a09111d0b93dbd5afc1f88ac6094b884d00c000023210286de5bd7831baacc55b87cdf14a1938b2f2ab905529c739c82709c2993cfeafcac00000000000000000000000000000000000000',
                             'port': '12986',
                            },
                     "HUSH": {
@@ -74,6 +76,7 @@ def setup_module():
                              'tx_proof_id': '661bae364443948a009fa7f706c3c8b7d3fa6b0b27eca185b075abbe85bbdedc',
                              'tx_spent_height': 2681,
                              'tx_proof_height': '2690',
+                             'tx_proof_hex': '0400008085202f89016dff5a7406f8d831a7614386f225cb5e15449393c55817c439fe5e1d8cbe1044070000006b4830450221009616dcbe00e8ba188d0e30364da97dd277713688fc313b2ebe2635955fc7d2b602203baaabe2451193500831aecd9b51360455e68ef58be1f36d1c0fe670122e06ce01210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ffffffff0a102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac102700000000000023210303725d8525b6f969122faf04152653eb4bf34e10de92182263321769c334bf58ac2aa97f05000000001976a9149fcdb676cf2df71ad22124acf1294549d0509ae788ac00000000000000000000000000000000000000',
                              'port': '18031'
                             },
                     # not sure if all data below is correct
@@ -90,6 +93,7 @@ def setup_module():
                             'tx_proof_id': 'dcd9d4a23405c25f65a341319f0a860cd4ffa364510bb1180aeab57efc1315f0',
                             'tx_spent_height': 477369,
                             'tx_proof_height': '477369',
+                            'tx_proof_hex': '0400008085202f89017f60812cb7637c87918b6ee3c574b104e46088f0d00c1d9067deb4076fa50005030000006b48304502210098927d1daba33455061487938796602a24c75b1a4fee8355264a821d8064f803022049b43e9d1392854022cf9db20b758c124df907504eb435074d65dc2c9f8c5d6f012102d09f2cb1693be9c0ea73bb48d45ce61805edd1c43590681b02f877206078a5b3ffffffff0400e1f505000000001976a91418f4d9ad759bc3159b405d3f690c74e45d6a851788ac00c2eb0b000000001976a91418f4d9ad759bc3159b405d3f690c74e45d6a851788aca01f791c000000001976a91418f4d9ad759bc3159b405d3f690c74e45d6a851788ac2fe85d1cfd0100001976a91490a0d8ba62c339ade97a14e81b6f531de03fdbb288ac00000000000000000000000000000000000000',
                             'port': '25435',
                            },
                     }
@@ -331,7 +335,7 @@ def test_broadcast_call():
     if broadcast_res == expected:
         pass
     else:
-        raise AssertionError("Aseert equal broadcast: ", broadcast_res, expected)
+        raise AssertionError("Assert equal broadcast: ", broadcast_res, expected)
 
 
 def test_mempool_call():
@@ -370,10 +374,15 @@ def test_faucetinfo():
 
 
 def test_gettransaction():
-    """Not implemented yet"""
     print('\n', "testing gettransaction call")
-    rpc_call = call.nspv_gettransaction()
-    call.assert_error(rpc_call)
+    rpc_call = call.nspv_gettransaction(chain_params.get(coin).get("tx_proof_id"))
+    call.assert_contains(rpc_call, "hex")
+    rep = call.type_convert(rpc_call)
+    rawhex = rep.get("hex")
+    if chain_params.get(coin).get("tx_proof_hex") == rawhex:
+        pass
+    else:
+        raise AssertionError("Aseert equal gettransaction: ", rawhex, chain_params.get(coin).get("tx_proof_hex"))
 
 def test_autologout():
     """Wif should expeire in 777 seconds"""
