@@ -41,6 +41,7 @@ uint32_t NSPV_logintime, NSPV_tiptime, NSPV_didfirstutxos, NSPV_didfirsttxids, N
 int32_t NSPV_didfirsttxproofs, NSPV_longestchain = 0;
 char NSPV_tmpseed[4096], NSPV_walletseed[4096], NSPV_lastpeer[64], NSPV_address[64], NSPV_wifstr[64], NSPV_pubkeystr[67], NSPV_symbol[64], NSPV_fullname[64];
 char NSPV_language[64] = {"english"};
+bool NSPV_limit_ip = false;
 
 btc_spv_client* NSPV_client;
 const btc_chainparams* NSPV_chain;
@@ -174,6 +175,13 @@ btc_node* NSPV_req(btc_spv_client* client, btc_node* node, uint8_t* msg, uint32_
     int32_t i, n, flag = 0;
     btc_node* nodes[64];
     uint32_t timestamp = (uint32_t)time(NULL);
+    if (NSPV_limit_ip) {
+      n = 0;
+      node = nodes[n];
+      nspv_log_message("%s selected node (LIMIT IP) %s\n", __func__, node->ipaddr);
+      client->nodegroup->NSPV_num_connected_nodes = n;
+      flag = 1;
+    }
     if (node == 0) {
         memset(nodes, 0, sizeof(nodes));
         n = 0;
